@@ -17,6 +17,21 @@ public class InMemoryPizzaRepository : IPizzaRepository
 		_nextId = 3;
 	}
 
+	public int GetNextId()
+	{
+		return _nextId;
+	}
+
+	public List<Pizza> GetAll()
+	{
+		return _pizzas.ToList();
+	}
+
+	public Pizza? GetById(int id)
+	{
+		return _pizzas.FirstOrDefault(p => p.Id == id);
+	}
+
 	public void Add(Pizza pizza)
 	{
 		_pizzas.Add(pizza);
@@ -30,21 +45,6 @@ public class InMemoryPizzaRepository : IPizzaRepository
 		if (pizza is null) return;
 
 		_pizzas.Remove(pizza);	}
-
-	public List<Pizza> GetAll()
-	{
-		return _pizzas.ToList();
-	}
-
-	public Pizza? GetById(int id)
-	{
-		return _pizzas.FirstOrDefault(p => p.Id == id);
-	}
-
-	public int GetNextId()
-	{
-		return _nextId;
-	}
 
 	public void Update(Pizza pizza)
 	{
