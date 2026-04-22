@@ -14,7 +14,7 @@ builder.Services.AddCors(options =>
 // Add services to the container.
 builder.Services.AddControllers();
 
-builder.Services.AddScoped<IPizzaRepository, InMemoryPizzaRepository>();
+builder.Services.AddSingleton<IPizzaRepository, InMemoryPizzaRepository>();
 builder.Services.AddScoped<PizzaService>();
 
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
