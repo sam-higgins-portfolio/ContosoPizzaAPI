@@ -5,7 +5,12 @@ namespace ContosoPizza.Services;
 
 public class PizzaService
 {
-    private IPizzaRepository _repository = new InMemoryPizzaRepository();
+    private IPizzaRepository _repository;
+
+    public PizzaService(IPizzaRepository repository)
+    {
+        _repository = repository;
+    }
 
     public List<Pizza> GetAll() => _repository.GetAll();
 

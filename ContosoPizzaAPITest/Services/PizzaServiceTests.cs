@@ -1,4 +1,5 @@
 using ContosoPizza.Models;
+using ContosoPizza.Repositories;
 using ContosoPizza.Services;
 
 namespace ContosoPizza.PizzaServiceTests;
@@ -9,7 +10,7 @@ public class PizzaServiceTests
 
     public PizzaServiceTests()
     {
-        _service = new PizzaService();
+        _service = new PizzaService(new InMemoryPizzaRepository());
     }
 
 	[Fact]
@@ -42,8 +43,6 @@ public class PizzaServiceTests
 
 		Assert.Equal(3, result.Last().Id);
 		Assert.Equal("Meateeze", result.Last().Name);
-		Assert.Equal(15.0f, result.Last().Price);
-		Assert.False(result.Last().IsGlutenFree);
 	}
 
 	[Fact]

@@ -1,4 +1,3 @@
-using System.ComponentModel;
 using ContosoPizza.Models;
 using ContosoPizza.Services;
 using Microsoft.AspNetCore.Mvc;
@@ -11,9 +10,9 @@ public class PizzaController : ControllerBase
 {
     private PizzaService _service;
 
-    public PizzaController()
+    public PizzaController(PizzaService service)
     {
-        _service = new PizzaService();
+        _service = service;
     }
 
     // GET all action
